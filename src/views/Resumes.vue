@@ -64,7 +64,7 @@ export default {
     <p><a href="resume.personal_blog_url">Personal Blog</a></p>
     <p><a href="resume.resume_url"></a></p>
     <p><a href="resume.github_url">GitHub</a></p>
-    <img src="resume.photo_url" alt="personal image" />
+    <img v-bind:src="resume.photo_url" alt="personal image" class="profile-photo" />
     <h1>Experience</h1>
     <h1>Education</h1>
     <h1>Skills</h1>
@@ -72,3 +72,9 @@ export default {
     <p>__________________________</p>
   </div>
 </template>
+
+<style>
+.profile-photo {
+  width: 50px;
+}
+</style>
