@@ -7,6 +7,8 @@
     <router-link to="/signup">Signup</router-link>
     |
     <router-link to="/resume">Resumes</router-link>
+    |
+    <router-link to="/profile"><p>Profile</p></router-link>
   </div>
   <router-view />
 </template>
