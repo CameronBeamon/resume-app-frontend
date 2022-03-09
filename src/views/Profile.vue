@@ -9,6 +9,9 @@ export default {
     };
   },
   created: function () {
+    axios.get("https://fierce-cove-12825.herokuapp.com/students/4").then((response) => {
+      this.profile = response.data;
+    });
     console.log("looks like it's working");
   },
   methods: {
