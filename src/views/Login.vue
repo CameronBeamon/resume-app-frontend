@@ -1,4 +1,6 @@
 <script>
+import axios from "axios";
+
 export default {
   data: function () {
     return {
@@ -8,7 +10,9 @@ export default {
   },
   methods: {
     LogmeIn: function () {
-      console.log("hi");
+      axios.post("https://fierce-cove-12825.herokuapp.com/sessions", this.Username, this.Password).then((response) => {
+        console.log(response.data);
+      });
     },
   },
 };
