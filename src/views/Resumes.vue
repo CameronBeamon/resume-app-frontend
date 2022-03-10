@@ -4,10 +4,6 @@ export default {
   data: function () {
     return {
       resumes: [],
-      // experiences: [],
-      // education: [],
-      // skills: [],
-      // projects: [],
     };
   },
   created: function () {
@@ -18,10 +14,6 @@ export default {
       axios.get("https://fierce-cove-12825.herokuapp.com/students").then((response) => {
         console.log(response.data);
         this.resumes = response.data;
-        // this.experiences = this.resumes.experiences;
-        // this.education = this.resumes.educations;
-        // this.projects = this.resumes.projects;
-        // this.skills = this.resumes.skills;
       });
     },
   },
@@ -62,7 +54,7 @@ export default {
     <div v-for="project in resume.projects" :key="project.id">
       <p>{{ project.project_name }}</p>
       <p>{{ project.description }}</p>
-      <img :src="project.project_screenshot" alt="" />
+      <img :src="project.project_screenshot" alt="" class="project-photo" />
       <a href="project.project_url">Project Link</a>
     </div>
     <p>__________________________</p>
@@ -71,6 +63,9 @@ export default {
 
 <style>
 .profile-photo {
+  width: 50px;
+}
+.project-photo {
   width: 50px;
 }
 </style>
