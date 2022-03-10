@@ -47,9 +47,9 @@ export default {
     <h1>Education</h1>
     <p>{{ educations }}</p>
     <h1>Skills</h1>
-    <p>{{ resume.skills }}</p>
+    <p>{{ skills }}</p>
     <h1>Projects</h1>
-    <p>{{ resume.projects }}</p>
+    <p>{{ projects }}</p>
     <p>__________________________</p>
   </div>
 </template>

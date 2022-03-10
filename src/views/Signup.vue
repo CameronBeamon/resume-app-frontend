@@ -19,16 +19,12 @@ export default {
 
 <template>
   <div>
-    <p>Username:</p>
-    <input type="text" v-model="singUp.username" />
+    <p>Email:</p>
+    <input type="text" v-model="signUp.email" />
   </div>
   <div>
     <p>Password:</p>
-    <input type="text" v-model="singUp.password" />
-  </div>
-  <div>
-    <p>Confirm Password:</p>
-    <input type="text" v-model="singUp.confirm_password" />
+    <input type="password" v-model="signUp.password" />
   </div>
   <button v-on:click="signMeUp()">Signup</button>
 </template>
