@@ -4,10 +4,10 @@ export default {
   data: function () {
     return {
       resumes: [],
-      experience: [],
-      education: [],
-      skills: [],
-      projects: [],
+      // experiences: [],
+      // education: [],
+      // skills: [],
+      // projects: [],
     };
   },
   created: function () {
@@ -18,10 +18,10 @@ export default {
       axios.get("https://fierce-cove-12825.herokuapp.com/students").then((response) => {
         console.log(response.data);
         this.resumes = response.data;
-        this.experience = this.resumes.experiences;
-        this.education = this.resumes.educations;
-        this.projects = this.resumes.projects;
-        this.skills = this.resumes.skills;
+        // this.experiences = this.resumes.experiences;
+        // this.education = this.resumes.educations;
+        // this.projects = this.resumes.projects;
+        // this.skills = this.resumes.skills;
       });
     },
   },
@@ -42,14 +42,17 @@ export default {
     <p><a href="resume.resume_url"></a></p>
     <p><a href="resume.github_url">GitHub</a></p>
     <img v-bind:src="resume.photo_url" alt="personal image" class="profile-photo" />
-    <h1>Experience</h1>
-    <p>{{ experiences }}</p>
-    <h1>Education</h1>
+    <div v-for="experience in resume.experiences" :key="experience.id">
+      <h1>Experience</h1>
+      <p>{{ experience.company_name }}</p>
+    </div>
+
+    <!-- <h1>Education</h1>
     <p>{{ educations }}</p>
     <h1>Skills</h1>
     <p>{{ skills }}</p>
     <h1>Projects</h1>
-    <p>{{ projects }}</p>
+    <p>{{ projects }}</p> -->
     <p>__________________________</p>
   </div>
 </template>

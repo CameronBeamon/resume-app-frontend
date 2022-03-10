@@ -4,6 +4,7 @@ import Login from "../views/Login.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Resumes from "../views/Resumes.vue";
+import Logout from "../views/Logout.vue";
 
 const routes = [
   {
@@ -39,6 +40,11 @@ const routes = [
     path: "/resume",
     name: "Resumes",
     component: Resumes,
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    component: Logout,
   },
 ];
 
