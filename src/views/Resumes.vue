@@ -4,37 +4,10 @@ export default {
   data: function () {
     return {
       resumes: [],
-      experience: [
-        {
-          startDate: "",
-          endDate: "",
-          jobTitle: "",
-          companyName: "",
-          details: "",
-        },
-      ],
-      education: [
-        {
-          startDate: "",
-          endDate: "",
-          degree: "",
-          universityName: "",
-          details: "",
-        },
-      ],
-      skills: [
-        {
-          skillName: "",
-        },
-      ],
-      projects: [
-        {
-          name: "",
-          description: "",
-          url: "",
-          screenshot: "",
-        },
-      ],
+      experience: [],
+      education: [],
+      skills: [],
+      projects: [],
     };
   },
   created: function () {
@@ -45,6 +18,10 @@ export default {
       axios.get("https://fierce-cove-12825.herokuapp.com/students").then((response) => {
         console.log(response.data);
         this.resumes = response.data;
+        this.experience = this.resumes.experiences;
+        this.education = this.resumes.educations;
+        this.projects = this.resumes.projects;
+        this.skills = this.resumes.skills;
       });
     },
   },
@@ -66,9 +43,13 @@ export default {
     <p><a href="resume.github_url">GitHub</a></p>
     <img v-bind:src="resume.photo_url" alt="personal image" class="profile-photo" />
     <h1>Experience</h1>
+    <p>{{ experiences }}</p>
     <h1>Education</h1>
+    <p>{{ educations }}</p>
     <h1>Skills</h1>
+    <p>{{ resume.skills }}</p>
     <h1>Projects</h1>
+    <p>{{ resume.projects }}</p>
     <p>__________________________</p>
   </div>
 </template>
