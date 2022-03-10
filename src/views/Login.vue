@@ -11,6 +11,9 @@ export default {
     LogmeIn: function () {
       axios.post("https://fierce-cove-12825.herokuapp.com/sessions", this.login).then((response) => {
         console.log(response.data);
+        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+        localStorage.setItem("jwt", response.data.jwt);
+        this.$router.push("/profile");
       });
     },
   },
@@ -24,7 +27,7 @@ export default {
   </div>
   <div>
     <p>Password:</p>
-    <input type="text" v-model="login.password" />
+    <input type="password" v-model="login.password" />
   </div>
   <button v-on:click="LogmeIn()">Login</button>
 </template>

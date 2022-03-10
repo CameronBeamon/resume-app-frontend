@@ -1,15 +1,17 @@
 <script>
+import axios from "axios";
+
 export default {
   data: function () {
     return {
-      Username: "",
-      Password: "",
-      conPassword: "",
+      signUp: {},
     };
   },
   methods: {
     signMeUp: function () {
-      console.log("hi");
+      axios.post("https://fierce-cove-12825.herokuapp.com/students", this.signUp).then((response) => {
+        console.log(response.data);
+      });
     },
   },
 };
@@ -17,16 +19,12 @@ export default {
 
 <template>
   <div>
-    <p>Username:</p>
-    <input type="text" v-model="Username" />
+    <p>Email:</p>
+    <input type="text" v-model="signUp.email" />
   </div>
   <div>
     <p>Password:</p>
-    <input type="text" v-model="Password" />
-  </div>
-  <div>
-    <p>Confirm Password:</p>
-    <input type="text" v-model="Password" />
+    <input type="password" v-model="signUp.password" />
   </div>
   <button v-on:click="signMeUp()">Signup</button>
 </template>
