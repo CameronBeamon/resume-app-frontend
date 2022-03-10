@@ -9,7 +9,7 @@ export default {
     };
   },
   created: function () {
-    axios.get("https://fierce-cove-12825.herokuapp.com/students/4").then((response) => {
+    axios.get("https://fierce-cove-12825.herokuapp.com/students/" + localStorage.student_id).then((response) => {
       this.profile = response.data;
     });
     console.log("looks like it's working");
@@ -33,8 +33,17 @@ export default {
 
 <template>
   <div class="profile">
-    <h2>{{ "This is going to look great trust me" }}</h2>
-    <p>{{ "Like I said, It'll look great" }}</p>
+    <h2>{{ "Look at your beautiful profile!" }}</h2>
+    <img :src="profile.photo_url" class="w3-round" />
+    <p>Name: {{ profile.first_name + " " + profile.last_name }}</p>
+    <p>Email: {{ profile.email }}</p>
+    <p>Phone Number: {{ profile.phone_number }}</p>
+    <p>Bio: {{ profile.short_bio }}</p>
+    <p>Linkedin: {{ profile.linkedin_url }}</p>
+    <p>Resume: {{ profile.resume_url }}</p>
+    <p>Personal Blog: {{ profile.personal_blog_url }}</p>
+    <p>Github: {{ profile.github_url }}</p>
+    <p>Twitter: {{ profile.twitter_handle }}</p>
     <dialog id="photo-details">
       <form method="dialog">
         <h1>profile info</h1>
@@ -82,6 +91,7 @@ export default {
           Picture:
           <input type="text" v-model="editProfileParams.photo_url" />
         </p>
+        <button v-on:click="updateProfile(currentProfile)">Update</button>
         <button v-on:click="updateProfile(currentProfile)">Update</button>
         <button>Close</button>
       </form>
